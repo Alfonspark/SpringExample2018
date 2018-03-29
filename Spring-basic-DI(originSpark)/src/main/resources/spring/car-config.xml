@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<!-- 
+//		CarMaker maker = new HyundaiMaker(); 			#1
+//		CarMaker maker = new KiaMaker();				#2
+//		OrderManager orderManager = new OrderManager(); #3
+//		orderManager.setMaker(maker);					#4
+
+//		public OrderManager(CarMaker maker) {			#5
+//			this.maker = maker;
+//		}
+
+		moneyC = new Wallet(30000);	
+
+ -->
+	<!-- #1 -->
+	<bean id="hyundai" class="com.example.ioc.ex2afterSpring.HyundaiMaker"></bean>
+	<!-- #2 -->
+	<bean id="kia" class="com.example.ioc.ex2afterSpring.KiaMaker"></bean>
+
+ 	<!-- #3 -->
+	<bean id="orderManager" class="com.example.ioc.ex2afterSpring.OrderManager" init-method="initA">
+		<!-- #4 : Field Variable 'maker'에 직접 의존성을 주입하는 것이 아니며, Setter Method를 사용하여 의존성을 주입한다. -->
+		<!-- 
+		<property name="maker" ref="hyundai"/>
+		-->
+		<!-- #5 : Constructor -->
+		<constructor-arg name="maker" ref="kia"/>
+	</bean>
+	
+</beans>

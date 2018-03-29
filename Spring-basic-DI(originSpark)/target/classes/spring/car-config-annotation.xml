@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	<!-- 
+		<context:component-scan base-package="packagePath"/>의 기능설명{
+		
+		1) base-package에서부터 하부로 스캔하여 annotation이 붙은 classes, interface 등을 bean으로 등록한다.
+		2) <context:annotation-config/>가 내장됨.
+		
+		<registry(등록)에 Bean으로 등록할 대상이 되는 주요?! @Annotation list>
+		@Named			javax.inject.Named;
+		@Component		org.springframework.stereotype.Component;
+		@Controller		org.springframework.stereotype.Controller;
+		@Service		org.springframework.stereotype.Service;
+		@Repository		org.springframework.stereotype.Repository;
+		
+		@RestController
+		@ControllerAdvice 
+		...
+		Spring이 발전하면서 scan범위 안에 포함될 Annotation은 계속 늘어가는 추세다.
+		
+		* register:등록하다
+		
+		}
+	 -->
+	<context:component-scan base-package="com.example.ioc.ex4Annotation"></context:component-scan>
+	
+	<!-- 
+		<context:annotation-config></context:annotation-config>의 기능설명 {
+		
+		1) Container에 등록된 Beans를 Target으로, DI(Dependency Injection) 처리한다.
+
+		@Autowired		org.springframework.beans.factory.annotation.Autowired;
+		@Resource		javax.annotation.Resource;
+		@Inject			javax.inject.Inject;
+		@Qualifier		org.springframework.beans.factory.annotation.Qualifier;
+		@Named 			javax.inject.Named;
+		
+		}
+	 -->
+	
+</beans>
